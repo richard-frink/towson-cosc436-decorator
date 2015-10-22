@@ -4,6 +4,7 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  *
  * @author rsussa1
  */
+
 abstract class Decorator {
     private Component trailer; // points to another decorator or the reciept
     

@@ -4,6 +4,7 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  *
  * @author rsussa1
  */
+
 import edu.towson.cosc436.rsussa1.Interfaces.TaxComputation;
 
 public class Client {
@@ -11,7 +12,16 @@ public class Client {
 		Decorator[] decorators = new Decorator[10];
 		getCurrentDecorators(decorators);
 		
-		//user input(display avoid items, user selects user selsctsfrom)
+		//user input
+		//this is:
+		//1. start new reciept
+		
+		//2. add sales items
+		
+		//3. display receipt
+		
+		
+		
 		//create factory
 		RecieptFactory factory = new RecieptFactory();
 		

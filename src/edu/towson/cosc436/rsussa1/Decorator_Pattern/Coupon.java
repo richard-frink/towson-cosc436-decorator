@@ -4,6 +4,7 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  *
  * @author rsussa1
  */
+
 import edu.towson.cosc436.rsussa1.Interfaces.Rebate;
 
 public class Coupon extends Decorator implements Rebate{
