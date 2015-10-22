@@ -5,16 +5,40 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  * @author rsussa1
  */
 
-public class RecieptFactory {
-	//take in an input file
-	//this has:
+import java.util.Date;
 
-	//store number
-	//store address
-	//store phone number
-	//store code
+public class RecieptFactory {
+	private PurchasedItems items;
+	private Decorator[] decorators;
+	private BasicReciept reciept;
+	private Date date;
+	private String StateInfo;
+	private String StateCode;
 	
-	public Component getReciept(){
-		return new Component();
+	public RecieptFactory(PurchasedItems items, Decorator[] decorators, Date date){
+		this.items = items;
+		this.decorators = decorators;
+		this.date = date;
+		readConfigFile();
+		
+		reciept = new BasicReciept(items, date);
+		addTaxComputation();
+		addDecorators();
+	}
+	
+	public BasicReciept getReciept(){
+		return reciept;
+	}
+	
+	public void addTaxComputation(){
+		
+	}
+	
+	public void readConfigFile(){
+		
+	}
+	
+	private void addDecorators(){
+		
 	}
 }

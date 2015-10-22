@@ -6,9 +6,9 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  */
 
 abstract class Decorator {
-    private Component trailer; // points to another decorator or the reciept
+    private Reciept trailer; // points to another decorator or the reciept
     
-    public void create(Component c){
+    public void create(Reciept c){
         
     }
     

@@ -5,15 +5,14 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  * @author rsussa1
  */
 
-import edu.towson.cosc436.rsussa1.Interfaces.TaxComputation;
 import java.text.*;
 import java.util.Date;
 
-public class Massachusetts implements TaxComputation {
+public class Massachusetts extends TaxComputation {
 
 	//has a special tax free time on all goods on August 8th and 9th
 	@Override
-	public float getTax(PurchasedItems items) {
+	public float computeTax(PurchasedItems items) {
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
 		Date date = new Date();
 		String str = dateFormat.format(date);
@@ -24,5 +23,10 @@ public class Massachusetts implements TaxComputation {
 		else{
 			return (float).0625;			
 		}
+	}
+	
+	@Override
+	protected boolean taxHoliday(){
+		return true;
 	}
 }

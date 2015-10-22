@@ -5,12 +5,16 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  * @author rsussa1
  */
 
-import edu.towson.cosc436.rsussa1.Interfaces.TaxComputation;
 
-public class California implements TaxComputation {
+public class California extends TaxComputation {
 
 	@Override
-	public float getTax(PurchasedItems items) {
+	public float computeTax(PurchasedItems items) {
 		return (float).075;
+	}
+	
+	@Override
+	protected boolean taxHoliday(){
+		return true;
 	}
 }
