@@ -6,11 +6,16 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  */
 
 public class Item {
-    private String description;
+    private String name;
     private float price;
     
-    public String getDescription(){
-        return description;
+    public Item(String name, float price){
+    	this.name = name;
+    	this.price = price;
+    }
+    
+    public String getName(){
+        return name;
     }
     
     public float getPrice(){

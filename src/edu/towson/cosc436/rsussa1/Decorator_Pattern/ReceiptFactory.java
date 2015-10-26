@@ -7,27 +7,27 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
 
 import java.util.Date;
 
-public class RecieptFactory {
+public class ReceiptFactory {
 	private PurchasedItems items;
 	private Decorator[] decorators;
-	private BasicReciept reciept;
+	private BasicReceipt receipt;
 	private Date date;
 	private String StateInfo;
 	private String StateCode;
 	
-	public RecieptFactory(PurchasedItems items, Decorator[] decorators, Date date){
+	public ReceiptFactory(PurchasedItems items, Decorator[] decorators, Date date){
 		this.items = items;
 		this.decorators = decorators;
 		this.date = date;
 		readConfigFile();
 		
-		reciept = new BasicReciept(items, date);
+		receipt = new BasicReceipt(items, date);
 		addTaxComputation();
 		addDecorators();
 	}
 	
-	public BasicReciept getReciept(){
-		return reciept;
+	public BasicReceipt getReceipt(){
+		return receipt;
 	}
 	
 	public void addTaxComputation(){

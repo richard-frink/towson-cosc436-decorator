@@ -7,7 +7,7 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
 
 import java.util.Date;
 
-public class BasicReciept {
+public class BasicReceipt {
 	Date d;
 	PurchasedItems items;
 	float totalSaleNoTax = 0; // total without tax
@@ -15,7 +15,7 @@ public class BasicReciept {
 	float total_tax = 0; // total tax on the reciept
 	TaxComputation StateTax;
 	
-	public BasicReciept(PurchasedItems items, Date date){
+	public BasicReceipt(PurchasedItems items, Date date){
 		this.items = items;
 		this.d = date;
 	}
@@ -25,7 +25,7 @@ public class BasicReciept {
         
     }
     
-    public void printReciept(){
+    public void printReceipt(){
         
     }
     

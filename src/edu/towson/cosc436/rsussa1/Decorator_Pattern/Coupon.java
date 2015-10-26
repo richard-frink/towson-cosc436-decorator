@@ -16,7 +16,7 @@ public class Coupon extends Decorator implements Rebate{
         return true;
     }
     
-    public void printReciept(){
+    public void printReceipt(){
         
     }
     
