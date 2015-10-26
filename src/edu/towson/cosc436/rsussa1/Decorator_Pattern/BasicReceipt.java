@@ -12,7 +12,7 @@ public class BasicReceipt {
 	PurchasedItems items;
 	float totalSaleNoTax = 0; // total without tax
 	float amountDue = 0; // total with sales tax
-	float total_tax = 0; // total tax on the reciept
+	float total_tax = 0; // total tax on the receipt
 	TaxComputation StateTax;
 	
 	public BasicReceipt(PurchasedItems items, Date date){

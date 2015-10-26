@@ -10,12 +10,12 @@ import java.util.Date;
 
 public class Client {
 	public static void main(String[] args){
+		Date date = new Date();
+		boolean start = true;
 		PurchasedItems items = new PurchasedItems();
 		Decorator[] decorators = new Decorator[10];
 		getCurrentDecorators(decorators);
-		Date date = new Date();
-		BasicReceipt myReceipt = new BasicReceipt(null, null);
-		boolean start = true;
+		
 		Scanner scan = new Scanner(System.in);
 		
 		while(start == true){
@@ -28,10 +28,8 @@ public class Client {
 
 			switch(option){
 				case 1 : 
-					myReceipt = new BasicReceipt(null, null);
+					items = new PurchasedItems(); // clears current list of items remembered for the receipt
 					break;
-					//this case is necessary in case we want to not the restart the program,
-					//but we want to start a new receipt
 
 				case 2 : 
 					boolean addItem = true;
@@ -44,9 +42,7 @@ public class Client {
 						items.addItem(new Item(name, price));
 						System.out.print("\nEnter another item? (y/n): ");
 						String cont = scan.next();
-						if(cont.equalsIgnoreCase("y")){
-							
-						}
+						if(cont.equalsIgnoreCase("y"));
 						else{
 							addItem = false;
 						}
