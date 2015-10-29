@@ -63,7 +63,15 @@ public class Client {
 	}
 
 	private static void getCurrentDecorators(Decorator[] decorators) {
-		
+		decorators[0] = new GreetingDec("Happy Holidays from Best Buy");
+		decorators[1] = new GreetingDec("Summer Sales are Hot at Best Buy");
+		decorators[2] = new Coupon100get10Dec();
+		decorators[3] = new Coupon200get20Dec();
+		decorators[4] = new RebateIpodDec();
+		decorators[5] = new RebateHPPrinterDec();
+		for(int i = 6; i < 10; i++){
+			decorators[i] = null;
+		}
 	}
 	
 	private static int getInt(int temp){

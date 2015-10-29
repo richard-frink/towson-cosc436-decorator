@@ -5,22 +5,18 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  * @author rsussa1
  */
 
-import edu.towson.cosc436.rsussa1.Interfaces.Rebate;
+import edu.towson.cosc436.rsussa1.Interfaces.Applicable;
 
-public class Coupon extends Decorator implements Rebate{
+public class Coupon100get10Dec extends Decorator implements Applicable{
     public void create(int idkwhatthisis, int discount){
     	
     }
 	
-	public boolean applies(PurchasedItems items){
+	public boolean applies(String[] strs){
         return true;
     }
     
     public void printReceipt(){
         
-    }
-    
-    public int getItemNum(){
-    	return 0;
     }
 }

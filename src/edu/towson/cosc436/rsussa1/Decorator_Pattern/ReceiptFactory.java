@@ -14,7 +14,9 @@ public class ReceiptFactory {
 	private Decorator[] decorators;
 	private BasicReceipt receipt;
 	private Date date;
-	private String StateInfo; // address of store to print on receipt
+	private String StoreNumber; // store's number
+	private String StoreInfo; // address of store to print on receipt
+	private String StorePhone; // phone number of store
 	private String StateCode; // used to calculate tax info
 	
 	public ReceiptFactory(PurchasedItems items, Decorator[] decorators, Date date){
@@ -23,8 +25,8 @@ public class ReceiptFactory {
 		this.date = date;
 		readConfigFile();
 		
-		receipt = new BasicReceipt(items, date);
-		addTaxComputation();
+		receipt = new BasicReceipt(this.items, date);
+		addTaxComputation(StateCode);
 		addDecorators();
 	}
 	
@@ -32,7 +34,22 @@ public class ReceiptFactory {
 		return receipt;
 	}
 	
-	public void addTaxComputation(){
+	public void addTaxComputation(String location){
+		if(location.equalsIgnoreCase("MD")){
+			receipt.addTaxMethod(new Maryland());
+		}
+		else if(location.equalsIgnoreCase("MA")){
+			receipt.addTaxMethod(new Massachusetts());
+		}
+		else if(location.equalsIgnoreCase("CA")){
+			receipt.addTaxMethod(new California());
+		}
+		else if(location.equalsIgnoreCase("DE")){
+			receipt.addTaxMethod(new Delaware());
+		}
+	}
+	
+	private void addDecorators(){
 		
 	}
 	
@@ -54,17 +71,14 @@ public class ReceiptFactory {
             else{
             	read = new Scanner(new File("config4.txt"));
             }
-            while(read.hasNextLine()){
-                String str = read.nextLine();
-                
-            }
+            StoreNumber = read.nextLine();
+            StoreInfo = read.nextLine();
+            StorePhone = read.nextLine();
+            StateCode = read.nextLine();
+            read.close();
         }
         catch(IOException i){
             System.out.println("Error: " + i.getMessage());
         }
-	}
-	
-	private void addDecorators(){
-		
 	}
 }

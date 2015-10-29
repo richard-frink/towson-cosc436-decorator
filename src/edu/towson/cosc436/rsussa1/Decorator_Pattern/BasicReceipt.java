@@ -8,12 +8,12 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
 import java.util.Date;
 
 public class BasicReceipt {
-	Date d;
-	PurchasedItems items;
-	float totalSaleNoTax = 0; // total without tax
-	float amountDue = 0; // total with sales tax
-	float total_tax = 0; // total tax on the receipt
-	TaxComputation StateTax;
+	private Date d; ///this is how the date prints::::	Thu Oct 29 14:07:08 EDT 2015
+	private PurchasedItems items;
+	private float totalSaleNoTax = 0; // total without tax
+	private float amountDue = 0; // total with sales tax
+	private float total_tax = 0; // total tax on the receipt
+	private TaxComputation StateTax;
 	
 	public BasicReceipt(PurchasedItems items, Date date){
 		this.items = items;
@@ -21,15 +21,34 @@ public class BasicReceipt {
 	}
 	
     public void create(){
-        d = new Date();
+        //date is already set
+    	//addTaxMethod should have already been called to deal with tax operation //// if not, ignore calculating tax
+    	
+    	
+    	
+    	//we need to calculate the prices of all items
+    	totalSaleNoTax = items.getTotal();
+    	
+    	if(StateTax != null){
+    		
+    	}//calulate tax
+    	
+    	amountDue = totalSaleNoTax + total_tax;
+    	//calc the total charge to customer
         
     }
     
     public void printReceipt(){
+        System.out.print("\n----------------------------------------------");
         
+        
+        //figure out the order that everything ever is printed out in
+        
+        
+        System.out.print("\n----------------------------------------------");
     }
     
     public void addTaxMethod(TaxComputation tax){
-        
+        StateTax = tax;
     }
 }
