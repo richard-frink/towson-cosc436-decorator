@@ -23,7 +23,7 @@ public class ReceiptFactory {
 		this.items = items;
 		this.decorators = decorators;
 		this.date = date;
-		readConfigFile();
+		//readConfigFile();
 		
 		receipt = new BasicReceipt(this.items, date);
 		addTaxComputation(StateCode);
@@ -35,7 +35,7 @@ public class ReceiptFactory {
 	}
 	
 	public void addTaxComputation(String location){
-		if(location.equalsIgnoreCase("MD")){
+		if("md".equalsIgnoreCase("MD")){
 			receipt.addTaxMethod(new Maryland());
 		}
 		else if(location.equalsIgnoreCase("MA")){
@@ -55,30 +55,29 @@ public class ReceiptFactory {
 	
 	public void readConfigFile(){
 		//i am building this with a random number generator and a set of files
-		try{
+		//try{
             Scanner read;
             Random r = new Random();
             int randNum = r.nextInt(4);
             if(randNum == 0){
-            	read = new Scanner(new File("config1.txt"));
+            	read = new Scanner(new File("config1.txt").getAbsolutePath());
             }
             else if(randNum == 1){
-            	read = new Scanner(new File("config2.txt"));
+            	read = new Scanner(new File("config2.txt").getAbsolutePath());
             }
             else if(randNum == 2){
-            	read = new Scanner(new File("config3.txt"));
+            	read = new Scanner(new File("config3.txt").getAbsolutePath());
             }
             else{
-            	read = new Scanner(new File("config4.txt"));
+            	read = new Scanner(new File("config4.txt").getAbsolutePath());
             }
-            StoreNumber = read.nextLine();
-            StoreInfo = read.nextLine();
-            StorePhone = read.nextLine();
-            StateCode = read.nextLine();
-            read.close();
-        }
-        catch(IOException i){
-            System.out.println("Error: " + i.getMessage());
-        }
+            StoreNumber = read.next();
+            StoreInfo = read.next();
+            StorePhone = read.next();
+            StateCode = read.next();
+        //}
+        //catch(IOException i){
+        //    System.out.println("Error: " + i.getMessage());
+        //}
 	}
 }

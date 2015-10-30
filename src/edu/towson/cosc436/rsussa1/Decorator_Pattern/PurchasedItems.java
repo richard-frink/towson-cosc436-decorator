@@ -6,7 +6,7 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  */
 
 public class PurchasedItems {
-    public Item[] items = new Item[100];
+    public static Item[] items = new Item[100];
         
     public void addItem(Item i){
     	int x = 0;
@@ -16,13 +16,15 @@ public class PurchasedItems {
         items[x] = i;
     }
     
-    public void getIterator(){
-    	
+    public ItemsIterator getIterator(){
+    	return new ItemsIterator();
     }
     
     public float getTotal(){
-    	float total = 0;
-    	
-    	return total;
+    	float runningT = 0;
+    	for(Item i : items){
+    		runningT += i.getPrice();
+    	}
+    	return runningT;
     }
 }

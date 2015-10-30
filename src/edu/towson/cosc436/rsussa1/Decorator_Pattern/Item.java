@@ -21,4 +21,8 @@ public class Item {
     public float getPrice(){
         return price;
     }
+    
+    public String toString(){
+    	return getName().toUpperCase() + "				$" + getPrice();
+    }
 }

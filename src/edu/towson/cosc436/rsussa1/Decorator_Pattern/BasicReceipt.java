@@ -6,6 +6,7 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  */
 
 import java.util.Date;
+import edu.towson.cosc436.rsussa1.Interfaces.Iterator;
 
 public class BasicReceipt {
 	private Date d; ///this is how the date prints::::	Thu Oct 29 14:07:08 EDT 2015
@@ -31,7 +32,7 @@ public class BasicReceipt {
     	
     	if(StateTax != null){
     		
-    	}//calulate tax
+    	}//calculate tax
     	
     	amountDue = totalSaleNoTax + total_tax;
     	//calc the total charge to customer
@@ -39,13 +40,23 @@ public class BasicReceipt {
     }
     
     public void printReceipt(){
-        System.out.print("\n----------------------------------------------");
-        
+        System.out.print("\n------------------------------------------------\n");
+        System.out.println(d + "\n");
         
         //figure out the order that everything ever is printed out in
         
         
-        System.out.print("\n----------------------------------------------");
+        Iterator itr = items.getIterator();
+        while(itr.hasNext()){
+        	System.out.println((itr.getItem()).toString());
+        	itr.next();
+        }
+        System.out.println((itr.getItem()).toString());
+        
+                
+        
+        
+        System.out.print("\n------------------------------------------------\n");
     }
     
     public void addTaxMethod(TaxComputation tax){

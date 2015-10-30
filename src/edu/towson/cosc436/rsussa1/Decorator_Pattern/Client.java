@@ -80,6 +80,7 @@ public class Client {
 			System.out.print("\nPlease enter an option: ");
 			Scanner scan = new Scanner(System.in);
 			temp = scan.nextInt();
+			scan.close();
 		}
 		return temp;
 	}
