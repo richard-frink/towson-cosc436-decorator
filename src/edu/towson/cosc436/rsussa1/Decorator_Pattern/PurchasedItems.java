@@ -22,9 +22,12 @@ public class PurchasedItems {
     
     public float getTotal(){
     	float runningT = 0;
-    	for(Item i : items){
-    		runningT += i.getPrice();
-    	}
+    	int x = 0;
+    	while(items[x] != null){
+        	Item i = items[x];
+        	runningT += i.getPrice();
+        	x++;
+        }
     	return runningT;
     }
 }

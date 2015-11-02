@@ -23,40 +23,41 @@ public class BasicReceipt {
 	
     public void create(){
         //date is already set
-    	//addTaxMethod should have already been called to deal with tax operation //// if not, ignore calculating tax
     	
-    	
-    	
-    	//we need to calculate the prices of all items
     	totalSaleNoTax = items.getTotal();
-    	
     	if(StateTax != null){
-    		
-    	}//calculate tax
-    	
+    		total_tax = StateTax.computeTax(items);
+    	}
     	amountDue = totalSaleNoTax + total_tax;
-    	//calc the total charge to customer
-        
     }
     
     public void printReceipt(){
-        System.out.print("\n------------------------------------------------\n");
+        System.out.print("\n::::::::::::::::::::::::::::::::::::::::::::::\n");
         System.out.println(d + "\n");
         
         //figure out the order that everything ever is printed out in
         
         
-        Iterator itr = items.getIterator();
-        while(itr.hasNext()){
-        	System.out.println((itr.getItem()).toString());
-        	itr.next();
+        if(PurchasedItems.items[0] != null){
+        	create();
+            Iterator itr = items.getIterator();
+    		Item temp = itr.getItem();
+    		System.out.printf("\n%-36s", temp.getName());
+    		System.out.printf("$%.2f", temp.getPrice());
+            while(itr.hasNext()){
+        		itr.next();
+        		temp = itr.getItem();
+        		System.out.printf("\n%-36s", temp.getName());
+        		System.out.printf("$%.2f", temp.getPrice());
+        	}
         }
-        System.out.println((itr.getItem()).toString());
+
+        System.out.print("\n                               Tax: ");
+        System.out.printf("$%.2f", total_tax);
+        System.out.print("\n                             Total: ");
+        System.out.printf("$%.2f", amountDue);
         
-                
-        
-        
-        System.out.print("\n------------------------------------------------\n");
+        System.out.print("\n::::::::::::::::::::::::::::::::::::::::::::::\n");
     }
     
     public void addTaxMethod(TaxComputation tax){

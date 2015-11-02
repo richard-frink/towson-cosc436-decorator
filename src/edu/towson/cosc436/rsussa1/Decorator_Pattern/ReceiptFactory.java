@@ -14,10 +14,10 @@ public class ReceiptFactory {
 	private Decorator[] decorators;
 	private BasicReceipt receipt;
 	private Date date;
-	private String StoreNumber; // store's number
-	private String StoreInfo; // address of store to print on receipt
-	private String StorePhone; // phone number of store
-	private String StateCode; // used to calculate tax info
+	private String StoreNumber = ""; // store's number
+	private String StoreInfo = ""; // address of store to print on receipt
+	private String StorePhone = ""; // phone number of store
+	private String StateCode = ""; // used to calculate tax info
 	
 	public ReceiptFactory(PurchasedItems items, Decorator[] decorators, Date date){
 		this.items = items;
@@ -35,7 +35,7 @@ public class ReceiptFactory {
 	}
 	
 	public void addTaxComputation(String location){
-		if("md".equalsIgnoreCase("MD")){
+		if(location.equalsIgnoreCase("MD")){
 			receipt.addTaxMethod(new Maryland());
 		}
 		else if(location.equalsIgnoreCase("MA")){
@@ -55,29 +55,29 @@ public class ReceiptFactory {
 	
 	public void readConfigFile(){
 		//i am building this with a random number generator and a set of files
-		//try{
+		try{
             Scanner read;
             Random r = new Random();
             int randNum = r.nextInt(4);
             if(randNum == 0){
-            	read = new Scanner(new File("config1.txt").getAbsolutePath());
+            	read = new Scanner(new File("config1.txt"));
             }
             else if(randNum == 1){
-            	read = new Scanner(new File("config2.txt").getAbsolutePath());
+            	read = new Scanner(new File("config2.txt"));
             }
             else if(randNum == 2){
-            	read = new Scanner(new File("config3.txt").getAbsolutePath());
+            	read = new Scanner(new File("config3.txt"));
             }
             else{
-            	read = new Scanner(new File("config4.txt").getAbsolutePath());
+            	read = new Scanner(new File("config4.txt"));
             }
             StoreNumber = read.next();
             StoreInfo = read.next();
             StorePhone = read.next();
             StateCode = read.next();
-        //}
-        //catch(IOException i){
-        //    System.out.println("Error: " + i.getMessage());
-        //}
+        }
+        catch(IOException i){
+            System.out.println("Error: " + i.getMessage());
+        }
 	}
 }
