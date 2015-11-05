@@ -23,7 +23,7 @@ public class ReceiptFactory {
 		this.items = items;
 		this.decorators = decorators;
 		this.date = date;
-		//readConfigFile();
+		readConfigFile();
 		
 		receipt = new BasicReceipt(this.items, date);
 		addTaxComputation(StateCode);
@@ -60,21 +60,21 @@ public class ReceiptFactory {
             Random r = new Random();
             int randNum = r.nextInt(4);
             if(randNum == 0){
-            	read = new Scanner(new File("config1.txt"));
+            	read = new Scanner(new File(System.getProperty("user.dir") + "/" + "config1"));
             }
             else if(randNum == 1){
-            	read = new Scanner(new File("config2.txt"));
+            	read = new Scanner(new File(System.getProperty("user.dir") + "/" + "config2"));
             }
             else if(randNum == 2){
-            	read = new Scanner(new File("config3.txt"));
+            	read = new Scanner(new File(System.getProperty("user.dir") + "/" + "config3"));
             }
             else{
-            	read = new Scanner(new File("config4.txt"));
+            	read = new Scanner(new File(System.getProperty("user.dir") + "/" + "config4"));
             }
-            StoreNumber = read.next();
-            StoreInfo = read.next();
-            StorePhone = read.next();
-            StateCode = read.next();
+            StoreNumber = read.nextLine();
+            StoreInfo = read.nextLine();
+            StorePhone = read.nextLine();
+            StateCode = read.nextLine();
         }
         catch(IOException i){
             System.out.println("Error: " + i.getMessage());

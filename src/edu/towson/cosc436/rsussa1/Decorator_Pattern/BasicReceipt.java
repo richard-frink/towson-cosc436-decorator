@@ -32,8 +32,8 @@ public class BasicReceipt {
     }
     
     public void printReceipt(){
-        System.out.print("\n::::::::::::::::::::::::::::::::::::::::::::::\n");
         System.out.println(d + "\n");
+        //the above mayy not be necessary
         
         //figure out the order that everything ever is printed out in
         
@@ -51,13 +51,10 @@ public class BasicReceipt {
         		System.out.printf("$%.2f", temp.getPrice());
         	}
         }
-
         System.out.print("\n                               Tax: ");
         System.out.printf("$%.2f", total_tax);
         System.out.print("\n                             Total: ");
         System.out.printf("$%.2f", amountDue);
-        
-        System.out.print("\n::::::::::::::::::::::::::::::::::::::::::::::\n");
     }
     
     public void addTaxMethod(TaxComputation tax){
