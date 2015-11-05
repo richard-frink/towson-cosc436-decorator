@@ -18,7 +18,6 @@ public class Client {
 		
 		Scanner scan = new Scanner(System.in);
 
-		ReceiptFactory factory = new ReceiptFactory(items, decorators, date);
 		
 		while(start == true){
 			System.out.println("\n1-Start New Receipt");
@@ -52,6 +51,7 @@ public class Client {
 					break;
 
 				case 3 : //creating a factory
+					ReceiptFactory factory = new ReceiptFactory(items, decorators, date);
 					BasicReceipt receipt = factory.getReceipt();
 			        System.out.print("\n::::::::::::::::::::::::::::::::::::::::::::::\n");
 					receipt.printReceipt();
@@ -62,7 +62,8 @@ public class Client {
 					start = false;
 					break;
 			}
-		}			
+		}
+		scan.close();
 	}
 
 	private static void getCurrentDecorators(Decorator[] decorators) {

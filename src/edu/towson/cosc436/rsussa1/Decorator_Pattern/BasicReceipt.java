@@ -31,10 +31,15 @@ public class BasicReceipt {
     	amountDue = totalSaleNoTax + total_tax;
     }
     
+    public void addTaxMethod(TaxComputation tax){
+        StateTax = tax;
+    }
+    
     public void printReceipt(){
-        System.out.println(d + "\n");
-        //the above mayy not be necessary
-        
+    	
+    	//factory printStoreInfo()
+    	
+    	
         //figure out the order that everything ever is printed out in
         
         
@@ -55,9 +60,5 @@ public class BasicReceipt {
         System.out.printf("$%.2f", total_tax);
         System.out.print("\n                             Total: ");
         System.out.printf("$%.2f", amountDue);
-    }
-    
-    public void addTaxMethod(TaxComputation tax){
-        StateTax = tax;
     }
 }

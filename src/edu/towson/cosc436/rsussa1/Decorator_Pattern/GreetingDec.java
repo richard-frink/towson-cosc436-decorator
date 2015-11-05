@@ -14,7 +14,7 @@ public class GreetingDec extends Decorator implements Applicable{
 		this.greeting = greet;
 	}
 	
-	public boolean applies(String[] strs){
+	public boolean applies(PurchasedItems items){
         return true;
     }
 	

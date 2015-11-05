@@ -14,6 +14,6 @@ abstract class Decorator {
     
     //this method calls the print receipt method of the next portion of the receipt
     public void callTrailer(){
-        
+        trailer.printReceipt();
     }
 }

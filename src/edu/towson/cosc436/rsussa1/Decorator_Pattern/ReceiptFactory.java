@@ -53,6 +53,13 @@ public class ReceiptFactory {
 		
 	}
 	
+	public void printStoreInfo(){
+        System.out.print(date);
+		System.out.print("\nStore " + StoreNumber);
+		System.out.print("\n" + StoreInfo);
+		System.out.println("\n" + StorePhone);
+	}
+	
 	public void readConfigFile(){
 		//i am building this with a random number generator and a set of files
 		try{

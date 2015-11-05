@@ -12,7 +12,7 @@ public class RebateIpodDec extends Decorator implements Applicable{
     	
     }
 	
-	public boolean applies(String[] strs){
+	public boolean applies(PurchasedItems items){
         return true;
     }
     

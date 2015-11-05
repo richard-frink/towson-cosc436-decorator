@@ -19,11 +19,11 @@ public class Massachusetts extends TaxComputation {
 			if(PurchasedItems.items[0] != null){
 				Iterator itr = items.getIterator();
 				Item temp = itr.getItem();
-				tax += (temp.getPrice())*(.06);
+				tax += (temp.getPrice())*(.0625);
 				while(itr.hasNext()){
 					itr.next();
 					temp = itr.getItem();
-					tax += (temp.getPrice())*(.06);
+					tax += (temp.getPrice())*(.0625);
 				}
 			}
 			return tax;
