@@ -36,7 +36,7 @@ public class GreetingDec extends Decorator implements Applicable{
     }
 	
     public void printReceipt(){
-        System.out.print("\n" + greeting);
+        System.out.println("\n" + greeting);
         
     }
 }

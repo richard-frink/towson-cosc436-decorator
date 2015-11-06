@@ -8,7 +8,7 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
 import edu.towson.cosc436.rsussa1.Interfaces.Applicable;
 
 abstract class Decorator implements Applicable{
-    private BasicReceipt trailer; // points to another decorator or the receipt
+    private BasicReceipt trailer;
     
     public void create(BasicReceipt receipt){
         trailer = receipt;

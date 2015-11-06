@@ -16,6 +16,6 @@ public class Coupon200get20Dec extends Decorator implements Applicable{
     }
     
     public void printReceipt(){
-        System.out.print("\nYou spent over $200! Bring this receipt in as a coupon for 20% off your next purchase!");
+        System.out.print("\n\nYou spent over $200!\nBring this receipt in as a coupon for 20% off your next purchase!\n");
     }
 }

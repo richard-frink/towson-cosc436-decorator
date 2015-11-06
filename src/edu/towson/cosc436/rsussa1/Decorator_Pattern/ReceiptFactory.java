@@ -63,7 +63,7 @@ public class ReceiptFactory {
 	
 	public void printStoreInfo(){
         System.out.print(date);
-		System.out.print("\nStore " + StoreNumber);
+		System.out.print("\nBest Buy " + StoreNumber);
 		System.out.print("\n" + StoreInfo);
 		System.out.println("\n" + StorePhone);
 	}
@@ -90,6 +90,7 @@ public class ReceiptFactory {
             StoreInfo = read.nextLine();
             StorePhone = read.nextLine();
             StateCode = read.nextLine();
+            read.close();
         }
         catch(IOException i){
             System.out.println("Error: " + i.getMessage());

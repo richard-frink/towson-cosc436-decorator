@@ -42,4 +42,10 @@ public class PurchasedItems {
         }
     	return runningT;
     }
+    
+    public void clearItems(){
+    	for(int i = 0; i < items.length; i++){
+    		items[i] = null;
+    	}
+    }
 }

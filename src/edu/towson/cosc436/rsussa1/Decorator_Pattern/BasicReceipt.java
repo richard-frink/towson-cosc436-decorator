@@ -30,9 +30,14 @@ public class BasicReceipt {
         StateTax = tax;
     }
     
-    public void printReceipt(){  	
-    	//decorators have already been checked in the factory if they apply
-    	//
+    public void printReceipt(){
+    	
+    	if(Client.decorators[0] != null){
+    		((GreetingDec)Client.decorators[0]).printReceipt();
+    	}
+    	if(Client.decorators[1] != null){
+    		((GreetingDec)Client.decorators[2]).printReceipt();
+    	}
         
         if(PurchasedItems.items[0] != null){
         	create();
@@ -51,5 +56,18 @@ public class BasicReceipt {
         System.out.printf("$%.2f", total_tax);
         System.out.print("\n                             Total: ");
         System.out.printf("$%.2f", amountDue);
+        
+        if(Client.decorators[2] != null){
+    		((Coupon100get10Dec)Client.decorators[2]).printReceipt();
+    	}
+        if(Client.decorators[3] != null){
+    		((Coupon200get20Dec)Client.decorators[3]).printReceipt();
+    	}
+        if(Client.decorators[4] != null){
+    		((RebateIpodDec)Client.decorators[4]).printReceipt();
+    	}
+        if(Client.decorators[5] != null){
+    		((RebateHPPrinterDec)Client.decorators[5]).printReceipt();
+    	}
     }
 }

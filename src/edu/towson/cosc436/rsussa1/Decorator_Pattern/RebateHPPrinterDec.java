@@ -9,13 +9,13 @@ import edu.towson.cosc436.rsussa1.Interfaces.Applicable;
 
 public class RebateHPPrinterDec extends Decorator implements Applicable{
 	public boolean applies(PurchasedItems items){
-        if(items.hasItem(new Item("hpprinter", (float)129.99))){
+        if(items.hasItem(new Item("hp printer", (float)129.99))){
         	return true;
         }
         return false;
     }
     
 	public void printReceipt(){
-		System.out.print("\nMail-in rebate available for $45 on your 'HpPrinter'!");		
+		System.out.print("\nMail-in rebate available for $45 on your 'Hp Printer'!\n");		
 	}
 }
