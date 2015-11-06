@@ -13,19 +13,18 @@ public class ReceiptFactory {
 	private PurchasedItems items;
 	private Decorator[] decorators;
 	private BasicReceipt receipt;
-	private Date date;
-	private String StoreNumber = ""; // store's number
-	private String StoreInfo = ""; // address of store to print on receipt
-	private String StorePhone = ""; // phone number of store
-	private String StateCode = ""; // used to calculate tax info
+	public static Date date = new Date();   //this is how the date prints  ::  Thu Oct 29 14:07:08 EDT 2015  ::
+	private String StoreNumber = ""; 		// store's number
+	private String StoreInfo = ""; 			// address of store to print on receipt
+	private String StorePhone = ""; 		// phone number of store
+	private String StateCode = ""; 			// used to calculate tax info
 	
-	public ReceiptFactory(PurchasedItems items, Decorator[] decorators, Date date){
+	public ReceiptFactory(PurchasedItems items, Decorator[] decorators){
 		this.items = items;
 		this.decorators = decorators;
-		this.date = date;
 		readConfigFile();
 		
-		receipt = new BasicReceipt(this.items, date);
+		receipt = new BasicReceipt(this.items);
 		addTaxComputation(StateCode);
 		addDecorators();
 	}
@@ -50,7 +49,16 @@ public class ReceiptFactory {
 	}
 	
 	private void addDecorators(){
-		
+		for(int i = 0; i < decorators.length; i++){
+			if(decorators[i] != null){
+				if(!decorators[i].applies(items)){
+					decorators[i] = null;
+				}
+			}
+			else{
+				break;
+			}
+		}
 	}
 	
 	public void printStoreInfo(){

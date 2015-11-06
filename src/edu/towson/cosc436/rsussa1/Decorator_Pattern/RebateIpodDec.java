@@ -7,16 +7,15 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
 
 import edu.towson.cosc436.rsussa1.Interfaces.Applicable;
 
-public class RebateIpodDec extends Decorator implements Applicable{	
-	public void create(){
-    	
-    }
-	
+public class RebateIpodDec extends Decorator implements Applicable{
 	public boolean applies(PurchasedItems items){
-        return true;
+		if(items.hasItem(new Item("ipod", (float)199.99))){
+        	return true;
+        }
+        return false;
     }
     
 	public void printReceipt(){
-		
+		System.out.print("\nMail-in rebate available for $60 on your 'Ipod'!");
 	}
 }

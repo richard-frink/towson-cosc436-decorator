@@ -6,11 +6,9 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  */
 
 import java.util.Scanner;
-import java.util.Date;
 
 public class Client {
 	public static void main(String[] args){
-		Date date = new Date();
 		boolean start = true;
 		PurchasedItems items = new PurchasedItems();
 		Decorator[] decorators = new Decorator[10];
@@ -51,9 +49,10 @@ public class Client {
 					break;
 
 				case 3 : //creating a factory
-					ReceiptFactory factory = new ReceiptFactory(items, decorators, date);
+					ReceiptFactory factory = new ReceiptFactory(items, decorators);
 					BasicReceipt receipt = factory.getReceipt();
 			        System.out.print("\n::::::::::::::::::::::::::::::::::::::::::::::\n");
+			        factory.printStoreInfo();//prints the store number, address, phone number, and current date
 					receipt.printReceipt();
 			        System.out.print("\n::::::::::::::::::::::::::::::::::::::::::::::\n");
 					break;

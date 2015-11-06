@@ -6,7 +6,6 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  */
 
 import java.text.*;
-import java.util.Date;
 
 import edu.towson.cosc436.rsussa1.Interfaces.Iterator;
 
@@ -37,8 +36,7 @@ public class Massachusetts extends TaxComputation {
 	@Override
 	protected boolean taxHoliday(){
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd hh:mm:ss");
-		Date date = new Date();
-		String str = dateFormat.format(date);
+		String str = dateFormat.format(ReceiptFactory.date);
 		
 		if(str.charAt(6) == '8' && (str.charAt(9) == '8' || str.charAt(9) == '9')){
 			return true;

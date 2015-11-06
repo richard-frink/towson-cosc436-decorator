@@ -5,25 +5,20 @@ package edu.towson.cosc436.rsussa1.Decorator_Pattern;
  * @author rsussa1
  */
 
-import java.util.Date;
 import edu.towson.cosc436.rsussa1.Interfaces.Iterator;
 
 public class BasicReceipt {
-	private Date d; ///this is how the date prints::::	Thu Oct 29 14:07:08 EDT 2015
 	private PurchasedItems items;
 	private float totalSaleNoTax = 0; // total without tax
 	private float amountDue = 0; // total with sales tax
 	private float total_tax = 0; // total tax on the receipt
 	private TaxComputation StateTax;
 	
-	public BasicReceipt(PurchasedItems items, Date date){
+	public BasicReceipt(PurchasedItems items){
 		this.items = items;
-		this.d = date;
 	}
 	
     public void create(){
-        //date is already set
-    	
     	totalSaleNoTax = items.getTotal();
     	if(StateTax != null){
     		total_tax = StateTax.computeTax(items);
@@ -35,13 +30,9 @@ public class BasicReceipt {
         StateTax = tax;
     }
     
-    public void printReceipt(){
-    	
-    	//factory printStoreInfo()
-    	
-    	
-        //figure out the order that everything ever is printed out in
-        
+    public void printReceipt(){  	
+    	//decorators have already been checked in the factory if they apply
+    	//
         
         if(PurchasedItems.items[0] != null){
         	create();
